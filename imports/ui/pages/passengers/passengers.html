@@ -1,0 +1,44 @@
+<template name="passengers">
+    <h1>{{_"Passengers"}}</h1>
+    <form id="search" class="d-flex mt-4">
+        <input class="form-control w-25" placeholder="{{_'search'}}" name="search" />
+        <button class="btn mx-2 btn-primary">{{_'search'}}</button>
+    </form>
+    <table class="table mt-3 table-dark">
+        <tr>
+            <th>{{_"passengerName"}}</th>
+            <th>{{_"passengerLastName"}}</th>
+            <th>{{_"passengerGender"}}</th>
+            <th>{{_"passengerBirthDate"}}</th>
+            <th>{{_"passengerN"}}</th>
+            <th>{{_"passportCountry"}}</th>
+            <th>{{_"passportExpireDate"}}</th>
+            <th>{{_"Seats"}}</th>
+            <th>{{_"ticketNumber"}}</th>
+            <th>{{_"price"}}</th>
+        </tr>
+
+        {{#each getOrderPassengers}}
+        <tr>
+            {{#with getPassengers this.passengerId}}
+            <td>{{firstName}}</td>
+            <td>{{lastName}}</td>
+            <td>{{gender}}</td>
+            <td>{{formatDate birthDate}}</td>
+            <td>{{passportNumber}}</td>
+            <td>{{passportCountry}}</td>
+            <td>{{formatDate passportExpiredDate}}</td>
+            <td>{{../seat}}</td>
+            {{#with getTicket ../orderId}}
+            <td>{{number}}</td>
+            <td>{{price}}</td>
+            {{/with}}
+            {{/with}}
+        </tr>
+        {{/each}}
+    </table>
+    <div class="d-flex justify-content-start align-items-start">
+            <button id="pre" class="btn btn-primary text-center mx-2" disabled={{isDisabled}}>«</button>
+            <button id="next" class="btn btn-primary text-center mx-2" disabled={{isDisabledNext}}>»</button>
+    </div>
+</template>

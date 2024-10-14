@@ -1,0 +1,70 @@
+<template name="flights">
+    <h1>{{_ "Flights"}}</h1>
+    {{> flightModal selectedFlight=selectedFlight isDeleted=isDeleted isEdit=isEdit}}
+
+    <form id="search" class="d-flex mt-4">
+        <input class="form-control w-25" placeholder="{{_'search'}}" name="search" />
+        <select id="status" class="form-control w-10 mx-2">
+            <option value="ACTIVE">ACTIVE</option>
+            <option value="REFUNDED">REFUNDED</option>
+            <option value="FINISHED">FINISHED</option>
+            <option value="CANCELED">CANCELED</option>
+        </select>
+        <button class="btn mx-2 btn-primary">{{_'search'}}</button>
+    </form>
+
+    <button data-target="#flightModal" data-toggle="modal" id="openFlightModal" class="btn btn-primary mt-3">{{_
+        "add"}}</button>
+
+    <table class="table mt-3 table-dark">
+
+        <tr>
+            <th>{{_"flightNumber"}}</th>
+            <th>{{_"from"}}</th>
+            <th>Uçuşun başladığı tarix</th>
+            <th>Uçuşun başladığı vaxt</th>
+            <th>Uçuşun başladığı hava limanı</th>
+            <th>{{_"to"}}</th>
+            <th>Uçuşun bitdiyi tarix</th>
+            <th>Uçuşun bitdiyi vaxt</th>
+            <th>Uçuşun bitdiyi hava limanı</th>
+            <th>{{_"plane"}}</th>
+            <th>{{_'currentStatus'}}</th>
+            <th>Uçuşun başladığı gate</th>
+            <th>{{_'actions'}}</th>
+        </tr>
+
+        {{#each flights}}
+        <tr>
+            <td>{{number}}</td>
+            <td>{{from}}</td>
+            <td>{{dateFormat date}}</td>
+            <td>{{time}}</td>
+            <td>{{getDestinationFrom destinationFrom}}</td>
+            <td>{{to}}</td>
+            <td>{{dateFormat arrivalDate}}</td>
+            <td>{{arrivalTime}}</td>
+            <td>{{getDestinationTo destinationTo}}</td>
+            <td>{{getPlaneName planeId}}</td>
+            <td>{{status}}</td>
+            <td>{{gate}}</td>
+            <td>
+                <div class="d-flex justify-content-center bg-transparent">
+                    <button data-target="#flightModal" disabled="{{isDisabled}}" data-toggle="modal"
+                        class="btn edit-flight btn-primary mx-2">{{_
+                        "edit"}}</button>
+                    <button data-target="#flightModal" disabled="{{isDisabled}}" data-toggle="modal"
+                        class="btn delete-flight btn-danger mx-2">{{_ "delete"}}</button>
+                    <button disabled="{{isDisabled}}" class="btn btn-success finish-flight">{{_"finish"}}</button>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+
+    <div class="d-flex justify-content-start align-items-start">
+        <button id="pre" class="btn btn-primary text-center mx-2" disabled={{isDisabledPre}}>«</button>
+        <button id="next" class="btn btn-primary text-center mx-2" disabled={{isDisabledNext}}>»</button>
+    </div>
+
+</template>

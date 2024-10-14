@@ -1,0 +1,134 @@
+<template name="flightModal">
+    <div class="modal fade" id="flightModal" tabindex="-1" role="dialog" aria-labelledby="planeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+
+
+                    <h5 class="modal-title" id="planeModalLabel">{{_"Flights"}} {{_ "add"}}</h5>
+                    <button type="button" class="close btn text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{#if isDeleted}}
+                    {{#if show}}
+                    <div></div>
+                    {{else}}
+                    <select class="form-select my-2" id="deleteType">
+                        <option value="REFUND">REFUND</option>
+                        <option value="cno">Create new one</option>
+                    </select>
+                    <button id="deleteFlight" class="btn btn-primary">Delete</button>
+                    {{/if}}
+                    {{/if}}
+
+                    {{#if show}}
+                    <form id="flightAddForm">
+
+                        <select id="from" name="from" type="text" class="form-select my-3">
+                            <option value="{{selectedFlight.from}}">
+                                {{#if selectedFlight.from}}
+                                {{selectedFlight.from}}
+
+                                {{else}}
+                                {{_'from'}}
+                                {{/if}}
+                            </option>
+                            {{#each countries}}
+                            <option value="{{this.city}}">{{this.city}}</option>
+                            {{/each}}
+                        </select>
+                        <small id="error-from" class="text-danger"></small>
+                        <select id="destinationFrom" name="destinationFrom" type="text" class="form-select my-3">
+                            <option value="{{selectedFlight.destinationFrom}}">
+                                {{#if selectedFlight.destinationFrom}}
+                                {{getAirlineName selectedFlight.destinationFrom}}
+
+                                {{else}}
+                                {{_'flightAirline'}}
+                                {{/if}}
+                            </option>
+                            {{#each getAirlines }}
+                            <option value="{{_id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                        <small id="error-destinationForm" class="text-danger"></small>
+
+
+                        <input type="date" class="form-control mt-3" name="date" value="{{changeDate.date}}" id="date">
+                        <small id="error-date" class="text-danger"></small>
+                        <input type="time" class="form-control mt-3" name="time" value="{{selectedFlight.time}}"
+                            id="timr">
+                        <small id="error-time" class="text-danger"></small>
+
+
+                        <select id="to" name="to" type="text" class="form-select my-3">
+                            <option value="{{selectedFlight.to}}">
+                                {{#if selectedFlight.to}}
+                                {{selectedFlight.to}}
+                                {{else}}
+                                {{_'to'}}
+                                {{/if}}
+                            </option>
+                            {{#each departureCountries}}
+                            <option value="{{this.city}}">{{this.city}}</option>
+                            {{/each}}
+                        </select>
+                        <small id="error-to" class="text-danger"></small>
+                        <select id="destinationTo" name="destinationTo" type="text" class="form-select my-3">
+                            <option value="{{selectedFlight.destinationTo}}">
+                                {{#if selectedFlight.destinationTo}}
+                                {{getAirlineName selectedFlight.destinationTo}}
+                                {{else}}
+                                {{_'arrivalAirline'}}
+                                {{/if}} </option>
+                            {{#each getDepartureAirline}}
+                            <option value="{{this._id}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                        <small id="error-destinationTo" class="text-danger"></small>
+                        <input type="date" class="form-control mt-3" placeholder="Uçuşun bitdiyi tarix"
+                            name="arrivalDate" id="arrivalDate" value="{{changeDate.arrivalData}}">
+                        <small id="error-arrivalDate" class="text-danger"></small>
+                        <input type="time" class="form-control mt-3" placeholder="Uçuşun bitdiyi vaxt"
+                            name="arrivalTime" id="arrivalTime" value="{{selectedFlight.arrivalTime}}">
+                        <small id="error-arrivalTime" class="text-danger"></small>
+                        <select id="plane" name="plane" class="form-select mt-3">
+                            <option value="{{selectedFlight.planeId}}">
+                                {{#if getPlane}}
+                                {{getPlane}}
+                                {{else}}
+                                {{_'plane'}}
+                                {{/if}}
+                            </option>
+
+                            {{#each planes}}
+
+                            <option value="{{this._id}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                        <small id="error-plane" class="text-danger"></small>
+
+                        <select name="gateNumber" id="gateNumber" type="text" class="form-select my-3 ">
+                            <option value="{{selectedFlight.gate}}">
+                                {{#if selectedFlight.gate}}
+                                {{selectedFlight.gate}}
+                                {{else}}
+                                {{_'gate'}}
+                                {{/if}}
+                            </option>
+                            {{#each getGateNumber }}
+                            <option value="{{this}}">{{this}}</option>
+                            {{/each}}
+                        </select>
+                        <small id="error-plane" class="text-danger"></small>
+                        <button type="submit" class="btn btn-primary mt-3">{{_ "add"}}</button>
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

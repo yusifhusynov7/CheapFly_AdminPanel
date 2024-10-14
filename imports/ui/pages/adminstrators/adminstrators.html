@@ -1,0 +1,31 @@
+<template name="adminstrators">
+    <h1>{{_"Adminstrators"}}</h1>
+    {{> adminstratorModal selectedUser=selectedUser isEdit=isEdit}}
+    <button data-target="#adminstratorModal" data-toggle="modal" id="openPlaneModal" class="btn btn-primary mt-3">{{_
+        "add"}}</button>
+
+    <table class="table mt-3 table-dark">
+
+        <tr>
+            <th>{{_"firstName"}}</th>
+            <th>{{_"lastName"}}</th>
+            <th>{{_"email"}}</th>
+            <th>{{_"actions"}}</th>
+        </tr>
+
+        {{#each users}}
+        <tr>
+            <td>{{profile.firstName}}</td>
+            <td>{{profile.lastName}}</td>
+            <td>{{getEmail}}</td>
+            <td>
+                <div class="d-flex justify-content-center bg-transparent">
+                    <button class="btn delete-user btn-danger mx-2">{{_ "delete"}}</button>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+
+    </table>
+
+</template>

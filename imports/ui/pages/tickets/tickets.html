@@ -1,0 +1,40 @@
+<template name="tickets">
+    <h1>{{_"Flights tickets"}}</h1>
+    {{> ticketModal selectedTicket=selectedTicket}}
+    <button data-target="#ticketModal" data-toggle="modal" id="openTicketModal" class="btn btn-primary mt-3">{{_
+        "add"}}</button>
+
+    <table class="table mt-3 table-dark">
+
+        <tr>
+            <th>{{_"flightNumber"}}</th>
+            <th>{{_"ticketCount"}}</th>
+            <th>{{_"soldTicket"}}</th>
+            <th>{{_"type"}}</th>
+            <th>{{_"price"}}</th>
+            <th>{{_"baggagePrice"}}</th>
+            <th>{{_"actions"}}</th>
+        </tr>
+
+        {{#each tickets}}
+        <tr>
+            {{#with getFlight flightId}}
+                <td>{{this}}</td>
+            {{/with}}
+            <td>{{count}}</td>
+            <td>{{soldCount}}</td>
+            <td>{{type}}</td>
+            <td>{{price}}</td>
+            <td>{{baggagePrice}}</td>
+            <td>
+                <div class="d-flex justify-content-center bg-transparent">
+                    <button data-target="#ticketModal" data-toggle="modal" class="btn edit-ticket btn-primary mx-2">{{_
+                        "edit"}}</button>
+                    <button class="btn delete-ticket btn-danger mx-2">{{_ "delete"}}</button>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+
+    </table>
+</template>

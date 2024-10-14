@@ -1,0 +1,112 @@
+body {
+  font-family: sans-serif;
+  background-color: #1E1F29 !important;
+}
+
+.left-0{
+  left: 0vw;
+}
+
+.bottom-0{
+  bottom: 0vw;
+}
+
+.main-body{
+  background-color: #1E1F29;
+  color: #A4A6B3;
+  min-height: 100vh;
+  overflow-y: auto;
+  position: relative;
+  left: 300px;
+  padding: 2.5vw;
+  width: calc(100vw - 300px);
+
+}
+
+.list-admin{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px!important;
+  height: 100vh;
+  overflow-y: auto;
+  border-radius: 0!important;
+  background-color: #252733;
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.list-group-item.active{
+  background-color: #313145!important;
+  border-radius: 10px;
+  width: 200px;
+  border: none;
+} 
+
+.list-group-item{
+  background-color: #252733!important;
+  color: #A4A6B3!important;
+  padding: 10px;
+  margin-bottom: 13px;
+  border: none;
+  text-align: center!important;
+}
+
+/* login page */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+.btn-login {
+  width: 100%;
+}
+
+.forgot-password {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/*  Tables */
+th,tr{
+  color: #A4A6B3;
+  font-size: 14px;
+  margin-left: 15px;
+  text-align: center;
+}
+
+td{
+  text-align: center;
+}
+
+.bg-transparent{
+  background-color: transparent!important;
+}
+
+
+.fa-paper-plane {
+  font-size: 4vh;
+  margin-bottom: 5vw;
+  font-family: monospace;
+}
+
+.w-10{
+  width: 10%!important;
+}

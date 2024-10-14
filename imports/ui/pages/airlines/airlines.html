@@ -1,0 +1,33 @@
+<template name="airlines">
+    <h1>{{_"Airlines"}}</h1>
+    {{> airlineModal selectedAirlines=selectedAirlines}}
+    <button  data-target="#airlineModal" data-toggle="modal" id="openFlightModal" class="btn btn-primary mt-3">{{_ "add"}}</button>
+
+    <table class="table mt-3 table-dark">
+
+        <tr>
+            <th>{{_"title"}}</th>
+            <th>{{_"country"}}</th>
+            <th>{{_"gates"}}</th>
+            <th>{{_"actions"}}</th>
+        </tr>
+
+        {{#each airlines}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{country}}</td>
+            <td>{{formatGates gates}}</td>
+            <td>
+                <div class="d-flex justify-content-center bg-transparent">
+                    <button class="btn edit-airline btn-primary mx-2" 
+                         data-target="#airlineModal"
+                        data-toggle="modal"
+                    >{{_ "edit"}}</button>
+                    <button class="btn delete-airline btn-danger mx-2">{{_ "delete"}}</button>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+
+    </table>
+</template>

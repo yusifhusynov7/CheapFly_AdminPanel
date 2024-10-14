@@ -1,0 +1,62 @@
+<template name="ticketModal">
+    <div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="planeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-dark text-white">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="planeModalLabel">{{_"ticket"}} {{_ "add"}}mək</h5>
+                    <button type="button" class="close btn text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+
+                <div class="modal-body">
+                    <form id="ticketAddForm">
+                        <select id="flight" type="text" name="flight" class="form-select my-3">
+                            <option value="{{selectedTicket.number}}">
+                                {{#if selectedTicket.number}}
+                                {{selectedTicket.number}}
+                                {{else}}
+                                Uçuş
+                                {{/if}}
+
+                            </option>
+                            {{#each flights}}
+                            <option value="{{this._id}}">{{this.number}}</option>
+                            {{/each}}
+                        </select>
+                        <small id="error-flightId" class="text-danger"></small>
+
+                        <input value="{{selectedTicket.count}}" type="number" class="form-control mt-3"
+                            placeholder="Sayı" name="count" id="count">
+                        <select id="ticketType" name="ticketType" type="text" class="form-select my-3">
+                            <option value="{{selectedTicket.type}}">
+
+                                {{#if selectedTicket.type}}
+                                {{selectedTicket.type}}
+                                {{else}}
+                                Biletin tipi
+                                {{/if}}
+                            </option>
+                            <!-- <option value="One Way">One Way</option> -->
+                            <option value="Economy">Ekonom</option>
+                            <option value="Business">Biznes</option>
+                        </select>
+                        <small id="error-type" class="text-danger"></small>
+                        <input type="number" value="{{selectedTicket.price}}" class="form-control mt-3"
+                            placeholder="Qiymət" name="ticketPrice" id="ticketPrice">
+                        <small id="error-price" class="text-danger"></small>
+
+                        <input type="number" value="{{selectedTicket.baggagePrice}}" class="form-control mt-3"
+                            placeholder="Baqaj qiymət" name="baggagePrice" id="baggagePrice">
+                        <small id="error-baggagePrice" class="text-danger"></small>
+                        <button type="submit" class="btn btn-primary mt-3">{{_ "add"}}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

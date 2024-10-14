@@ -1,0 +1,33 @@
+<template name="adminstratorModal">
+    <div class="modal fade" id="adminstratorModal" tabindex="-1" role="dialog" aria-labelledby="planeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="planeModalLabel">{{_"Adminstrator"}} {{_ "add"}}mək</h5>
+                    <button type="button" class="close btn text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="userAddForm">
+                        <label>{{_'firstName'}}</label>
+                        <input type="text" value="{{selectedUser.profile.firstName}}" class="form-control"
+                            placeholder="{{_'firstName'}}" name="name" id="firstName">
+                        <label>{{_'lastName'}}</label>
+                        <input type="text" value="{{selectedUser.profile.lastName}}" class="form-control mt-3"
+                            placeholder="{{_'lastName'}}" id="lastName" name="lastName">
+                        <label>{{_'email'}}</label>
+                        <input type="text" value="{{selectedPlane.model}}" class="form-control mt-3"
+                            placeholder="{{_'email'}}" id="email" name="email" disabled="{{isEdit}}">
+                        <label>{{_'password'}}</label>
+                        <input disabled={{isEdit}} class="form-control mt-3" placeholder="{{_'password'}}"
+                            type="password" id="password" name="password">
+                        <button type="submit" class="btn btn-primary mt-3">{{_ "add"}}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

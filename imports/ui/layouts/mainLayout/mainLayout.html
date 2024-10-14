@@ -1,0 +1,9 @@
+<template name="mainLayout">
+    {{checkRole key}} 
+    <div class="d-flex w-100">
+        {{> sidebar}}
+        <main class="main-body">
+                {{> Template.dynamic template=main}}
+        </main>
+    </div>
+</template>

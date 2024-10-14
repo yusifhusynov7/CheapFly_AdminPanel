@@ -1,0 +1,29 @@
+<template name="sidebar">
+    <div class="list-group list-admin">
+            <i class="fa-solid fa-paper-plane" style="color: #b760ee;">
+            Cheap Fly</i>
+
+
+        <a href="." class="list-group-item  list-group-item-action {{isActive '/'}}" aria-current="true">
+            {{_ "Home"}}
+        </a>
+        {{#if isAdmin}}
+        <a href="/airlines" class="list-group-item  list-group-item-action {{isActive '/airlines'}}">{{_ "Airlines"}}</a>
+        <a href="/planes" class="list-group-item  list-group-item-action {{isActive '/planes'}}">{{_ "Planes"}}</a>
+        <a href="/adminstrators"
+            class="list-group-item  list-group-item-action {{isActive '/adminstrators'}}">{{_ "Adminstrators"}}</a>
+        {{/if}}
+        <a href="/flights" class="list-group-item  list-group-item-action {{isActive '/flights'}}">{{_ "Flights"}}</a>
+        <a href="/tickets" class="list-group-item  list-group-item-action {{isActive '/tickets'}}">{{_ "Flights tickets"}}</a>
+        <a href="/passengers" class="list-group-item  list-group-item-action {{isActive '/passengers'}}">{{_ "Passengers"}}</a>
+        <a href="#" id="logout" class="list-group-item  list-group-item-action " tabindex="-1">{{_ "Exit"}}</a>
+
+        <div class="d-flex position-absolute left-0 bottom-0 ms-5 justify-content-start">
+            <select id="lng" defaultValue="{{currentLng}}" class="form-select list-group-item ">
+                <option selected="{{isCurrentLng 'az'}}" value="az">AZ</option>
+                <option selected="{{isCurrentLng 'az'}}" value="en">EN</option>
+                <option selected= "{{isCurrentLng 'ru'}}" value="ru">RU</option>
+            </select>
+        </div>
+    </div>
+</template>

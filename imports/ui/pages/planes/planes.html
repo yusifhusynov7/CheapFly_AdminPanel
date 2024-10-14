@@ -1,0 +1,44 @@
+<template name="planes">
+    <h1>{{_ "Planes"}}</h1>
+    {{> planeModal selectedPlane=selectedPlane}}
+    <button data-target="#planeModal" data-toggle="modal" id="openPlaneModal" class="btn btn-primary mt-3">{{_
+        "add"}}</button>
+
+    <table class="table mt-3 table-dark">
+
+        <tr>
+            <th>{{_ "title"}}</th>
+            <th>{{_"pilot"}}</th>
+            <th>{{_"model"}}</th>
+            <th>{{_"type"}}</th>
+            <th>{{_"ecoCapacity"}}</th>
+            <th>{{_"busCapacity"}}</th>
+            <th>{{_"baggageCap"}}</th>
+            <th>{{_"currentStatus"}}</th>
+            <th>{{_"actions"}}</th>
+        </tr> 
+
+        {{#each planes}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{pilot}}</td>
+            <td>{{model}}</td>
+            <td>{{type}}</td>
+            <td>{{ecoCapacity}}</td>
+            <td>{{businessCapacity}}</td>
+            <td>{{baggageCapacity}}</td>
+            <!-- <td>{{getAirlines airlineId}}</td> -->
+            <td>{{status}}</td>
+            <td>
+                <div class="d-flex justify-content-center bg-transparent">
+                    <button data-target="#planeModal" data-toggle="modal" class="btn edit-plane btn-primary mx-2">{{_
+                        "edit"}}</button>
+                    <button class="btn delete-plane btn-danger mx-2">{{_ "delete"}}</button>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+
+    </table>
+
+</template>

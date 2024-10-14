@@ -1,0 +1,42 @@
+<template name="planeModal">
+    <div class="modal fade" id="planeModal" tabindex="-1" role="dialog" aria-labelledby="planeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="planeModalLabel">Təyyarə {{_ "add"}} </h5>
+                    <button type="button" class="close btn text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="planeAddForm">
+                        <input type="text" value="{{selectedPlane.name}}" class="form-control" placeholder="Ad"
+                            name="name" id="name">
+                        <small id="error-name" class="text-danger"></small>
+                        <input type="text" value="{{selectedPlane.pilot}}" class="form-control mt-3" placeholder="Pilot"
+                            id="pilot" name="pilot">
+                        <small id="error-pilot" class="text-danger"></small>
+                        <input type="text" value="{{selectedPlane.model}}" class="form-control mt-3" placeholder="Model"
+                            id="model" name="model">
+                        <small id="error-model" class="text-danger"></small>
+                        <input type="text" value="{{selectedPlane.type}}" class="form-control mt-3" placeholder="Tip"
+                            id="type" name="type">
+                        <small id="error-tyoe" class="text-danger"></small>
+                        <input type="text" value="{{selectedPlane.ecoCapacity}}" class="form-control mt-3"
+                            placeholder="Sərnişin tutumu" name="passengerCapacity" id="passengerCapacity">
+                        <small id="error-ecoCapacity" class="text-danger"></small>
+                        <input type="text" value="{{selectedPlane.businessCapacity}}" class="form-control mt-3"
+                            placeholder="Biznes tutumu" name="businessCapacity" id="businessCapacity">
+                        <small id="error-businessCapacity" class="text-danger"></small>
+                        <input type="text" value="{{selectedPlane.baggageCapacity}}" class="form-control mt-3"
+                            placeholder="Baqaj tutumu" id="baggageCapacity" name="baggageCapacity">
+                        <small id="error-baggageCapacity" class="text-danger"></small>
+                        <button type="submit" class="btn btn-primary mt-3">{{_ "add"}}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
